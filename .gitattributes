@@ -1,0 +1,25 @@
+# Normaliza finales de línea
+* text=auto
+
+# PHP files con LF
+*.php     text eol=lf
+*.inc     text eol=lf
+*.phtml   text eol=lf
+
+# Composer lock evita conflictos de merge
+composer.lock merge=ours
+
+# Archivos binarios no convertidos
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.ico     binary
+*.pdf     binary
+*.zip     binary
+*.gz      binary
+*.tar     binary
+*.7z      binary
+
+# Scripts con permisos ejecutables y LF
+*.sh      text eol=lf

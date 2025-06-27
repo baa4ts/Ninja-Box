@@ -1,0 +1,19 @@
+{
+    "name": "baa4ts/ninja-box",
+    "description": "Un microframework simple",
+    "type": "library",
+    "license": "bsd-3-clause",
+    "autoload": {
+        "psr-4": {
+            "baa4ts\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "baa4ts",
+            "email": "baa4tsdev@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

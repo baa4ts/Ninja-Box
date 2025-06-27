@@ -1,0 +1,67 @@
+# ------------------------
+# PHP / Composer
+# ------------------------
+vendor/
+composer.lock
+
+# ------------------------
+# Python / pip
+# ------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+env/
+venv/
+pip-log.txt
+pip-delete-this-directory.txt
+*.egg-info/
+.eggs/
+
+# ------------------------
+# Node.js / JavaScript
+# ------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ------------------------
+# OS / IDEs (global)
+# ------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# VSCode
+.vscode/
+
+# JetBrains (PhpStorm, WebStorm, IntelliJ)
+.idea/
+*.iml
+out/
+
+# Logs and temp files
+*.log
+tmp/
+temp/
+.cache/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Composer vendor directory
+/vendor/
