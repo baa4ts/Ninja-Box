@@ -24,14 +24,23 @@ namespace NinjaBox\Controllers {
         public function __construct()
         {
             $this->method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+            $this->uri    = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
 
-            $this->uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
+            $this->query["GET"] = $_GET ?: null;
 
-            $this->query["POST"] = empty($_POST) ? null : $_POST;
-            $this->query["GET"] = empty($_GET) ? null : $_GET;
+            if ($this->method === 'POST') {
+                $contentType = $_SERVER['CONTENT_TYPE'] ?? '';
+
+                if (str_starts_with($contentType, 'application/json')) {
+                    $json = file_get_contents("php://input");
+                    $this->query["POST"] = json_decode($json, true) ?? [];
+                } else {
+                    $this->query["POST"] = $_POST ?: null;
+                }
+            }
         }
     }
-
+    
     /**
      * Clase para manejar la respuesta HTTP.
      * 
