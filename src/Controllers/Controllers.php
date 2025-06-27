@@ -26,17 +26,19 @@ namespace NinjaBox\Controllers {
             $this->method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
             $this->uri    = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
 
-            $this->query["GET"] = $_GET ?: null;
+            $this->query["GET"] = $_GET ?? [];
 
-            if ($this->method != 'GET') {
+            if ($this->method !== 'GET') {
                 $contentType = $_SERVER['CONTENT_TYPE'] ?? '';
 
                 if (str_starts_with($contentType, 'application/json')) {
                     $json = file_get_contents("php://input");
                     $this->query["POST"] = json_decode($json, true) ?? [];
                 } else {
-                    $this->query["POST"] = $_POST ?: null;
+                    $this->query["POST"] = $_POST ?? [];
                 }
+            } else {
+                $this->query["POST"] = [];
             }
         }
     }
