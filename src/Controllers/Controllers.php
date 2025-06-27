@@ -40,7 +40,7 @@ namespace NinjaBox\Controllers {
             }
         }
     }
-    
+
     /**
      * Clase para manejar la respuesta HTTP.
      * 
@@ -115,7 +115,7 @@ namespace NinjaBox\Controllers {
 
             $contenido = file_get_contents($path);
 
-            header('Content-Type: text/plain; charset=utf-8');
+            header('Content-Type: text/html; charset=utf-8');
             echo $contenido;
 
             return $this;
