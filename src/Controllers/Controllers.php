@@ -115,7 +115,15 @@ namespace NinjaBox\Controllers {
 
             $contenido = file_get_contents($path);
 
-            header('Content-Type: text/html; charset=utf-8');
+            switch ($ext) {
+                case 'html':
+                    header('Content-Type: text/html; charset=utf-8');
+                    break;
+
+                default:
+                    header('Content-Type: text/plain; charset=utf-8');
+                    break;
+            }
             echo $contenido;
 
             return $this;
