@@ -16,7 +16,7 @@ namespace NinjaBox\Controllers {
     {
         public string $method;
         public string $uri;
-        public array $query;
+        public array $query = [];
 
         /**
          * Constructor que inicializa la instancia con los datos de la petición HTTP actual.
@@ -27,15 +27,8 @@ namespace NinjaBox\Controllers {
 
             $this->uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
 
-            $this->query = [];
-
-            if (!empty($_POST)) {
-                $this->query["POST"] = $_POST;
-            }
-
-            if (!empty($_GET)) {
-                $this->query["GET"] = $_GET;
-            }
+            $this->query["POST"] = empty($_POST) ? null : $_POST;
+            $this->query["GET"] = empty($_GET) ? null : $_GET;
         }
     }
 
