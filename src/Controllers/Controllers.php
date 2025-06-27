@@ -28,7 +28,7 @@ namespace NinjaBox\Controllers {
 
             $this->query["GET"] = $_GET ?: null;
 
-            if ($this->method === 'POST') {
+            if ($this->method != 'GET') {
                 $contentType = $_SERVER['CONTENT_TYPE'] ?? '';
 
                 if (str_starts_with($contentType, 'application/json')) {
